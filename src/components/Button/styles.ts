@@ -24,7 +24,6 @@ export const buttonStyle = cva({
         _hover: {
           transform: "translate(-4px,-4px)",
           boxShadow: "4px 4px 0 -1px token(colors.black)",
-          rounded: "1rem"
         }
       }
     }

@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { LoginSchema, loginSchema } from "./schema"
 import { LoaderCircle } from "lucide-react"
 import { toast } from "sonner"
+import { useState } from "react"
 
 const formStyle = css({
   rounded: "0.5rem",
@@ -26,24 +27,30 @@ export function LoginForm(){
   const {
     register,
     handleSubmit,
-    formState: {errors, isSubmitting},
+    formState: {errors},
     reset
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema)
   })
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const onSubmit: SubmitHandler<LoginSchema> = async(data) => {
-    const promise = (): Promise<LoginSchema> => new Promise((resolve) => setTimeout(() => resolve({name: "Moisés Neto", email: "moises@email.com"}), 2000));
+    setIsLoading(true)
+    const promise = (): Promise<LoginSchema> => new Promise((resolve) => setTimeout(() => resolve({
+      name: "Moisés Neto", email: "moises@email.com"
+    }), 2000));
 
     toast.promise(promise, {
       loading: 'Loading...',
       success: (data: LoginSchema) => {
+        setIsLoading(false);
+        reset()
+        console.log(data)
         return `${data.name} conseguiu fazer o login!`;
       },
       error: 'Error',
     });
-    console.log(data)
-    reset()
   }
 
   return(
@@ -66,8 +73,8 @@ export function LoginForm(){
         </Input.Root>
       </div>
 
-      <Button variant="outline" disabled={isSubmitting}>
-        {isSubmitting ? (
+      <Button variant="outline" disabled={isLoading}>
+        {isLoading ? (
           <LoaderCircle className={css({
             animation: "rotate 1s linear infinite",
             m: "auto"
