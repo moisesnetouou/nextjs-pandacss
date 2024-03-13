@@ -3,31 +3,17 @@ import {cva, type RecipeVariantProps}  from "@/styled-system/css"
 export const buttonStyle = cva({
   base: {
     cursor: "pointer",
-    "& span": {
-      color: "red.400",
-      _hover: {
-        color: "blue.600"
-      }
-    },
-    "& p": {
-      display: "inline",
-      ml: "0.5rem",
-      color: "red.900"
-    },
-  },
-  variants: {
-    variant: {
-      black: {
-        background: "black"
-      },
-      blue: {
-        background: "blue.700"
-      }
+    bg: "blue.500",
+    rounded: "0.5rem",
+    p: "16px",
+    color: "white",
+    transition: "colors",
+    transitionDuration: "300ms",
+    transitionTimingFunction: "ease-in-out",
+    _hover: {
+      bg: "blue.600"
     }
   },
-  defaultVariants: {
-    variant: "blue"
-  }
 })
 
 export type ButtonVariants = RecipeVariantProps<typeof buttonStyle>
