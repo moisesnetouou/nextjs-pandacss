@@ -28,6 +28,7 @@ export const inputStyle = sva({
       color: "blue.500",
       fontWeight: 500,
       outline: "none",
+      
       _placeholder: {
         color: "black/60",
         fontWeight: 400

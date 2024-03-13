@@ -1,1 +1,10 @@
 @layer reset, base, tokens, recipes, utilities;
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); /* Define o início da rotação */
+  }
+  to {
+    transform: rotate(360deg); /* Define o fim da rotação */
+  }
+}

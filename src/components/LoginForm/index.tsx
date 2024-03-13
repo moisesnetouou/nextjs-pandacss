@@ -6,6 +6,8 @@ import { Button } from "../Button"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { LoginSchema, loginSchema } from "./schema"
+import { LoaderCircle } from "lucide-react"
+import { toast } from "sonner"
 
 const formStyle = css({
   rounded: "0.5rem",
@@ -24,13 +26,24 @@ export function LoginForm(){
   const {
     register,
     handleSubmit,
-    formState: {errors}
+    formState: {errors, isSubmitting},
+    reset
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema)
   })
 
-  const onSubmit: SubmitHandler<LoginSchema> = (data) => {
+  const onSubmit: SubmitHandler<LoginSchema> = async(data) => {
+    const promise = (): Promise<LoginSchema> => new Promise((resolve) => setTimeout(() => resolve({name: "Moisés Neto", email: "moises@email.com"}), 2000));
+
+    toast.promise(promise, {
+      loading: 'Loading...',
+      success: (data: LoginSchema) => {
+        return `${data.name} conseguiu fazer o login!`;
+      },
+      error: 'Error',
+    });
     console.log(data)
+    reset()
   }
 
   return(
@@ -53,8 +66,15 @@ export function LoginForm(){
         </Input.Root>
       </div>
 
-      <Button variant="outline">
-        Entrar
+      <Button variant="outline" disabled={isSubmitting}>
+        {isSubmitting ? (
+          <LoaderCircle className={css({
+            animation: "rotate 1s linear infinite",
+            m: "auto"
+          })} />
+        ): (
+          <span>Entrar</span>
+        )}
       </Button>
      </form>
   )
