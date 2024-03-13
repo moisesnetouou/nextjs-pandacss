@@ -8,17 +8,19 @@ export const inputStyle = sva({
       flexDir: "column",
       gap: "0.25rem",
       rounded: "0.5rem",
-      outline: "1px solid token(colors.gray.100)",
+      outline: "1px solid token(colors.black/50)",
       bg: "white",
       p: "1rem",
+      transition: "all",
+      transitionTimingFunction: "ease-in-out",
       _focusWithin: {
-        outline: "2px solid token(colors.blue.300)"
+        outline: "2px solid token(colors.black/90)"
       }
     },
     prefixText: {
       fontSize: "12px",
       lineHeight: "20px",
-      color: "gray.700",
+      color: "black/60",
       fontWeight: 600,
     },
     control: {
@@ -27,7 +29,7 @@ export const inputStyle = sva({
       fontWeight: 500,
       outline: "none",
       _placeholder: {
-        color: "gray.400",
+        color: "black/60",
         fontWeight: 400
       }
     }
