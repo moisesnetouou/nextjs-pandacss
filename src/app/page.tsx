@@ -7,18 +7,19 @@ export default function Home() {
     <main className={css({
       h: "screen",
       display: "flex",
-      bg: "gray.900"
+      bg: "#E1E8F3",
     })}>
      <form className={css({
       rounded: "0.5rem",
       border: "1px solid token(colors.gray.300)",
       w: "350px",
       p: "24px",
-      background: "gray.400/30",
+      background: "white",
       m: "auto",
       gap: "16px",
       display: "flex",
-      flexDir: "column"
+      flexDir: "column",
+      shadow: "xs"
      })}>
       <Input.Root>
         <Input.PrefixText>

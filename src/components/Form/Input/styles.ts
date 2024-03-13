@@ -8,11 +8,11 @@ export const inputStyle = sva({
       flexDir: "column",
       gap: "0.25rem",
       rounded: "0.5rem",
-      outline: "1px solid token(colors.purple.500)",
+      outline: "1px solid token(colors.gray.100)",
       bg: "white",
       p: "1rem",
       _focusWithin: {
-        outline: "2px solid token(colors.blue.600)"
+        outline: "2px solid token(colors.blue.300)"
       }
     },
     prefixText: {

@@ -16,11 +16,27 @@ export default defineConfig({
       tokens: {
         colors: {
           blue: {
-            100: {
-              value: "#dbeafe",
-              description: "Azul bem claro"
-            }
-          }
+            10: {value: "#EDF4FF"},
+            100: {value: "#dbeafe"},
+            300: {value: "#77ADFF"},
+            500: {value: "#1C77ff"},
+            600: {value: "#004FC7"},
+          },
+          gray: {
+            100: {value: "#F6F6F6"},
+            200: {value: "#EFEFEF"},
+            300: {value: "#D9D9D9"},
+            400: {value: "#959595"},
+            500: {value: "#C9C9C9"},
+            700: {value: "#979797"},
+            800: {value: "#565656"},
+          },
+          green: {
+            500: {value: "#00CC76"},
+          },
+          red: {
+            500: {value: "#FF5F6D"},
+          },
         }
       }
     },
